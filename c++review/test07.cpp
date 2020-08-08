@@ -7,7 +7,7 @@ private:
 public:
     Shape();
     ~Shape();
-    double getArea();
+    virtual double getArea(); //通过虚函数实现后期的多态性
 };
 
 Shape::Shape()
@@ -17,7 +17,10 @@ Shape::Shape()
 Shape::~Shape()
 {
 }
-
+double Shape::getArea()
+{
+    return 0;
+}
 class Rectangle : public Shape
 {
 private:
@@ -89,5 +92,13 @@ int main()
     cout << b.getArea() << endl;
     Circle c(3);
     cout << c.getArea() << endl;
+    Shape *p;
+    p = &a;
+    cout << p->getArea() << endl;
+    p = &b;
+    cout << p->getArea() << endl;
+    p = &c;
+    cout << p->getArea() << endl;
+    cout << "nihao" << endl;
     return 0;
 }
