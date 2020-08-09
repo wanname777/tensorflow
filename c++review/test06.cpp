@@ -16,5 +16,4 @@ int main()
     }
     int b=fn1();
     cout<<b<<endl;
-
 }
