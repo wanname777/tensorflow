@@ -1,9 +1,7 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 using namespace std;
-template <class T>
-class Array
-{
+template <class T> class Array {
 private:
     T *list;
     int size;
@@ -15,8 +13,7 @@ public:
     Array<T> &operator=(const Array<T> &rhs);
     Array<T> operator+(const Array<T> &rhs);
     Array<T> operator-(const Array<T> &rhs);
-    friend ostream &operator<<(ostream &out, const Array<T> &rhs)
-    {
+    friend ostream &operator<<(ostream &out, const Array<T> &rhs) {
         for (int i = 0; i < rhs.size; i++)
             out << rhs.list[i] << endl;
         return out;
@@ -28,58 +25,40 @@ public:
     int getSize() const;
     void resize(int sz);
 };
-template <class T>
-Array<T>::Array(int sz)
-{
+template <class T> Array<T>::Array(int sz) {
     assert(sz >= 0);
     size = sz;
     list = new T[size];
 }
-template <class T>
-Array<T>::~Array()
-{
-    delete[] list;
-}
-template <class T>
-Array<T>::Array(const Array<T> &a)
-{
+template <class T> Array<T>::~Array() { delete[] list; }
+template <class T> Array<T>::Array(const Array<T> &a) {
     size = a.size;
     list = new T[size];
-    for (int i = 0; i < size; i++)
-    {
+    for (int i = 0; i < size; i++) {
         list[i] = a.list[i];
     }
 }
-template <class T>
-Array<T> &Array<T>::operator=(const Array<T> &rhs)
-{
-    if (&rhs != this)
-    {
-        if (size != rhs.size)
-        {
+template <class T> Array<T> &Array<T>::operator=(const Array<T> &rhs) {
+    if (&rhs != this) {
+        if (size != rhs.size) {
             delete[] list;
             size = rhs.size;
             list = new T[size];
         }
-        for (int i = 0; i < size; i++)
-        {
+        for (int i = 0; i < size; i++) {
             list[i] = rhs.list[i];
         }
     }
     return *this;
 }
-template <class T>
-Array<T> Array<T>::operator+(const Array<T> &rhs)
-{
+template <class T> Array<T> Array<T>::operator+(const Array<T> &rhs) {
     assert(size == rhs.size);
     Array<T> temp(size);
     for (int i = 0; i < size; i++)
         temp.list[i] = list[i] + rhs.list[i];
     return temp;
 }
-template <class T>
-Array<T> Array<T>::operator-(const Array<T> &rhs)
-{
+template <class T> Array<T> Array<T>::operator-(const Array<T> &rhs) {
     assert(size == rhs.size);
     Array<T> temp(size);
     for (int i = 0; i < size; i++)
@@ -93,36 +72,18 @@ Array<T> Array<T>::operator-(const Array<T> &rhs)
 //         out << rhs.list[i] << endl;
 //     return out;
 // }
-template <class T>
-T &Array<T>::operator[](int n)
-{
+template <class T> T &Array<T>::operator[](int n) {
     assert(n >= 0 && n <= size);
     return list[n];
 }
-template <class T>
-const T &Array<T>::operator[](int n) const
-{
+template <class T> const T &Array<T>::operator[](int n) const {
     assert(n >= 0 && n <= size);
     return list[n];
 }
-template <class T>
-Array<T>::operator T *()
-{
-    return list;
-}
-template <class T>
-Array<T>::operator const T *() const
-{
-    return list;
-}
-template <class T>
-int Array<T>::getSize() const
-{
-    return size;
-}
-template <class T>
-void Array<T>::resize(int sz)
-{
+template <class T> Array<T>::operator T *() { return list; }
+template <class T> Array<T>::operator const T *() const { return list; }
+template <class T> int Array<T>::getSize() const { return size; }
+template <class T> void Array<T>::resize(int sz) {
     assert(sz >= 0);
     if (sz == size)
         return;
@@ -134,8 +95,7 @@ void Array<T>::resize(int sz)
     list = newlist;
     size = sz;
 }
-int main()
-{
+int main() {
     Array<int> a1(5);
     Array<int> a2(5);
     Array<int> a3(5);
@@ -143,8 +103,7 @@ int main()
     Array<int> a5(5);
     cout << a1.getSize() << endl;
     cout << a2.getSize() << endl;
-    for (int i = 0; i < 5; i++)
-    {
+    for (int i = 0; i < 5; i++) {
         a1[i] = i;
         a2[i] = 2 * i;
     }

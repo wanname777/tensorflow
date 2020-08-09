@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
-class vehicle
-{
+class vehicle {
 private:
     int MaxSpeed;
     float Weight;
@@ -17,40 +16,24 @@ public:
     void Stop();
 };
 
-vehicle::vehicle()
-{
-    cout << "The vehicle has been constructed" << endl;
-}
-vehicle::vehicle(int m, float w, float p) : MaxSpeed(m), Weight(w), price(p)
-{
+vehicle::vehicle() { cout << "The vehicle has been constructed" << endl; }
+vehicle::vehicle(int m, float w, float p) : MaxSpeed(m), Weight(w), price(p) {
     cout << "The vehicle has been constructed" << endl;
 }
 vehicle::vehicle(vehicle &v)
-    : MaxSpeed(v.MaxSpeed), Weight(v.Weight), price(v.price)
-{
+    : MaxSpeed(v.MaxSpeed), Weight(v.Weight), price(v.price) {
     cout << "The vehicle has been copied" << endl;
 }
-vehicle::~vehicle()
-{
-    cout << "The vehicle has been deconstructed" << endl;
-}
-void vehicle::print()
-{
+vehicle::~vehicle() { cout << "The vehicle has been deconstructed" << endl; }
+void vehicle::print() {
     cout << "maxspeed:" << MaxSpeed << endl
          << "weight:" << Weight << endl
          << "price:" << price << endl;
 }
-void vehicle::Run()
-{
-    cout << "The vehicle is running!" << endl;
-}
-void vehicle::Stop()
-{
-    cout << "The vehicle has stopped!" << endl;
-}
+void vehicle::Run() { cout << "The vehicle is running!" << endl; }
+void vehicle::Stop() { cout << "The vehicle has stopped!" << endl; }
 
-class motorcar : public vehicle
-{
+class motorcar : public vehicle {
 private:
     float Length;
     float Height;
@@ -66,43 +49,27 @@ public:
     void Stop();
 };
 
-motorcar::motorcar()
-{
-    cout << "The motorcar has been constructed" << endl;
-}
+motorcar::motorcar() { cout << "The motorcar has been constructed" << endl; }
 motorcar::motorcar(float l, float h, float g, int m, float w, float p)
-    : Length(l), Height(h), Gas(g), vehicle(m, w, p)
-{
+    : Length(l), Height(h), Gas(g), vehicle(m, w, p) {
     cout << "The motorcar has been constructed" << endl;
 }
 motorcar::motorcar(motorcar &m, vehicle &v)
-    : Length(m.Length), Height(m.Height), Gas(m.Gas), vehicle(v)
-{
+    : Length(m.Length), Height(m.Height), Gas(m.Gas), vehicle(v) {
     cout << "The motorcar has been copied" << endl;
 }
 
-motorcar::~motorcar()
-{
-    cout << "The motorcar has been deconstructed" << endl;
-}
-void motorcar::print()
-{
+motorcar::~motorcar() { cout << "The motorcar has been deconstructed" << endl; }
+void motorcar::print() {
     vehicle::print();
     cout << "length:" << Length << endl
          << "height:" << Height << endl
          << "gas:" << Gas << endl;
 }
-void motorcar::Run()
-{
-    cout << "The motorcar is running!" << endl;
-}
-void motorcar::Stop()
-{
-    cout << "The motorcar has stopped!" << endl;
-}
+void motorcar::Run() { cout << "The motorcar is running!" << endl; }
+void motorcar::Stop() { cout << "The motorcar has stopped!" << endl; }
 
-class motorcycle : public motorcar
-{
+class motorcycle : public motorcar {
 private:
     int power;
 
@@ -116,41 +83,29 @@ public:
     void Stop();
 };
 
-motorcycle::motorcycle()
-{
+motorcycle::motorcycle() {
     cout << "The motorcycle has been constructed" << endl;
 }
-motorcycle::motorcycle(int pow, float l, float h, float g,
-                       int m, float w, float p)
-    : power(pow), motorcar(l, h, g, m, w, p)
-{
+motorcycle::motorcycle(int pow, float l, float h, float g, int m, float w,
+                       float p)
+    : power(pow), motorcar(l, h, g, m, w, p) {
     cout << "The motorcycle has been constructed" << endl;
 }
 motorcycle::motorcycle(motorcycle &m, motorcar &mcar, vehicle &v)
-    : power(m.power), motorcar(mcar, v)
-{
+    : power(m.power), motorcar(mcar, v) {
     cout << "The motorcycle has been copied" << endl;
 }
-motorcycle::~motorcycle()
-{
+motorcycle::~motorcycle() {
     cout << "The motorcycle has been deconstructed" << endl;
 }
-void motorcycle::print()
-{
+void motorcycle::print() {
     motorcar::print();
     cout << "power:" << power << endl;
 }
-void motorcycle::Run()
-{
-    cout << "The motorcycle is running!" << endl;
-}
-void motorcycle::Stop()
-{
-    cout << "The motorcycle has stopped!" << endl;
-}
+void motorcycle::Run() { cout << "The motorcycle is running!" << endl; }
+void motorcycle::Stop() { cout << "The motorcycle has stopped!" << endl; }
 
-int main()
-{
+int main() {
     vehicle a(99, 99, 99);
     motorcar b(200, 200, 200, 100, 100, 100);
     motorcycle c(300, 200, 200, 200, 100, 100, 100);

@@ -2,11 +2,11 @@
 #include <iostream>
 using namespace std;
 class node {
-  private:
+private:
     int x;
     int y;
 
-  public:
+public:
     node(int xx, int yy);
     ~node();
 };

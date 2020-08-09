@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 void my_remove(char *d);
-int main()
-{
+int main() {
     char str[50];
     gets(str);
     puts(str);
@@ -13,12 +12,10 @@ int main()
 }
 #include <ctype.h>
 #include <string.h>
-void my_remove(char *d)
-{
+void my_remove(char *d) {
     char s[100];
     int i = 0, j = 0;
-    while (d[i])
-    {
+    while (d[i]) {
         if (isdigit(d[i]))
             s[j++] = d[i];
         i++;

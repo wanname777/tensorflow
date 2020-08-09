@@ -1,8 +1,7 @@
-#include <iostream>
 #include <cstring>
+#include <iostream>
 using namespace std;
-class Person
-{
+class Person {
 private:
     char name[100];
     char sex[100];
@@ -17,30 +16,22 @@ public:
     void modify_id(char *id);
 };
 
-Person::Person()
-{
-    cout << "构建成功" << endl;
-}
-Person::Person(char *name, char *id) : sex("man"), province("shandong"), date("20000101")
-{
+Person::Person() { cout << "构建成功" << endl; }
+Person::Person(char *name, char *id)
+    : sex("man"), province("shandong"), date("20000101") {
     strcpy(this->name, name);
     strcpy(this->id, id);
     cout << "构建成功" << endl;
 }
-void Person::Show()
-{
+void Person::Show() {
     cout << name << endl;
     cout << sex << endl;
     cout << province << endl;
     cout << date << endl;
     cout << id << endl;
 }
-void Person::modify_id(char *id)
-{
-    strcpy(this->id, id);
-}
-int main()
-{
+void Person::modify_id(char *id) { strcpy(this->id, id); }
+int main() {
     auto num = 1;
     cout << num << endl;
     Person a;
