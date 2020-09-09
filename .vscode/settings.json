@@ -1,8 +1,11 @@
 {
     "files.associations": {
         "*.html": "html",
+        "*.cpp": "cpp",
         "iostream": "cpp",
         "iosfwd": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "cassert": "cpp",
+        "algorithm": "cpp"
     }
 }
